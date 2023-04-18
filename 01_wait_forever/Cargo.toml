@@ -1,0 +1,19 @@
+[package]
+name = "rs_rpi4_os"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+lto = true
+
+[feature]
+default = []
+bsp_rpi3 = []
+bsp_rpi4 = []
+
+[[bin]]
+name = "kernel"
+path = "src/main.rs"
+
+[dependencies]
+
