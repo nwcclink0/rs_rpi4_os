@@ -49,8 +49,7 @@ RUSTFLAGS = $(RUSTC_MISC_ARGS) \
 		-C link-arg=--script=$(KERNEL_LINKER_SCRIPT)
 
 RUSTFLAGS_PEDANTIC = $(RUSTFLAGS) \
-		-D warnings \
-		-D missing_docs
+		-D warnings 
 
 FEATURES = --features bsp_$(BSP)
 COMPILER_ARGS = --target=$(TARGET) \
@@ -89,7 +88,7 @@ $(KERNEL_ELF): $(KERNEL_ELF_DEPS)
 $(KERNEL_BIN): $(KERNEL_ELF)
 	$(call color_header, "Generating stripped binary")
 	@$(OBJCOPY_CMD) $(KERNEL_ELF) $(KERNEL_BIN)
-	@(call color_progress_prefix, "Name")
+	$(call color_progress_prefix, "Name")
 	@echo $(KERNEL_BIN)
 	$(call color_progress_prefix, "Size")
 	$(call disk_usage_KiB, $(KERNEL_BIN))
@@ -130,5 +129,4 @@ objdump: $(KERNEL_ELF)
 nm: $(KERNEL_ELF)
 	$(call color_header, "Launching nm")
 	@$(DOCKER_TOOLS) $(NM_BINARY) --demangle --print-size $(KERNEL_ELF) | sort | rustfilt
-
 

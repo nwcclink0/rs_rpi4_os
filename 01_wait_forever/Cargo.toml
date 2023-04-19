@@ -6,7 +6,7 @@ edition = "2021"
 [profile.release]
 lto = true
 
-[feature]
+[features]
 default = []
 bsp_rpi3 = []
 bsp_rpi4 = []

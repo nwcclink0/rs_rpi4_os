@@ -5,5 +5,5 @@ else ifeq ($(shell uname -s), Darwin)
 endif
 
 define disk_usage_KiB
-	@printf '%s KiB\n' `du $(DU_ARGUMENTS) $(2) | cpu -f1`
+	@printf '%s KiB\n' `du $(DU_ARGUMENTS) $(1) | cut -f1`
 endef
