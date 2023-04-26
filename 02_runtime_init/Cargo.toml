@@ -1,13 +1,11 @@
 [package]
-name = "rs_rpi4_os"
+name = "mingo"
 version = "0.2.0"
+authors = ["Andre Richter <andre.o.richter@gmail.com>"]
 edition = "2021"
-
-
 
 [profile.release]
 lto = true
-
 
 [features]
 default = []
@@ -18,9 +16,12 @@ bsp_rpi4 = []
 name = "kernel"
 path = "src/main.rs"
 
+##--------------------------------------------------------------------------------------------------
+## Dependencies
+##--------------------------------------------------------------------------------------------------
+
 [dependencies]
-# platform specific dependencies
-[target.'cfg(target_arch="aarch64")'.dependencies]
+
+# Platform specific dependencies
+[target.'cfg(target_arch = "aarch64")'.dependencies]
 aarch64-cpu = { version = "9.x.x" }
-
-

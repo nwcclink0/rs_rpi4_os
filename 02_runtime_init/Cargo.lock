@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rs_rpi4_os"
+name = "mingo"
 version = "0.2.0"
 dependencies = [
  "aarch64-cpu",
