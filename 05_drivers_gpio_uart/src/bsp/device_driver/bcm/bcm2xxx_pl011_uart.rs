@@ -18,7 +18,8 @@ use tock_registers::{
 // Descriptions taken from "PrimeCell UART (PL011) Technical Reference Manual" r1p5.
 register_bitfields! {
     u32,
-
+    
+    //https://developer.arm.com/documentation/ddi0183/g/programmers-model/register-descriptions/flag-register--uartfr?lang=en
     FR [
         /// Transmit FIFO empty. The meaning of this bit depends on the state of the FEN bit in the
         /// Line Control Register, LCR_H.
@@ -118,6 +119,7 @@ register_bitfields! {
     ]
 }
 
+//https://developer.arm.com/documentation/dui0159/b/peripherals-and-interfaces/uart-interface/overview-of-uart-registers
 register_structs! {
     #[allow(non_snake_case)]
     pub RegisterBlock {
